@@ -53,6 +53,29 @@
             return playerChoice;
         }
 
+        function game(){
+            let playerWins = 0;
+            let computerWins = 0;
+            let result;
+
+            for(let i = 0; i < 5; i++){
+                result = play(getPlayerChoice(), getComputerChoice());
+                
+                if(result.charAt(4) == 'w')
+                    playerWins++;
+                else if(result.charAt(4) == 'l')
+                    computerWins++;
+            }
+
+            if(playerWins > computerWins)
+                return 'You win ' + playerWins + ' to ' + computerWins;
+            else if(playerWins < computerWins)
+                return 'You lose ' + playerWins + ' to ' + computerWins;
+            else
+                return 'It\'s a tie' + playerWins + ' to ' + computerWins;
+
+        }
+
         console.log(play(getPlayerChoice(), getComputerChoice()));
     </script>
 </body>
