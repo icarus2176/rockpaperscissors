@@ -9,8 +9,8 @@
 <body>
     <script>
         function getComputerChoice(){
-            const random = Math.floor(Math.random());
-
+            const random = Math.random();
+            
             if(random < .333)
                 return 'rock';
             else if(random > .666)
@@ -41,6 +41,19 @@
             else
                 return 'It\'s a tie.';
         }
+
+        function getPlayerChoice(){
+            let playerChoice = prompt('Rock, paper, or scissors?').toLowerCase();;
+
+            while(playerChoice != 'rock' && playerChoice != 'paper' && playerChoice != 'scissors'){
+                console.log('Invalid input');
+                playerChoice = prompt('Rock, paper, or scissors?').toLowerCase();
+            }
+
+            return playerChoice;
+        }
+
+        console.log(play(getPlayerChoice(), getComputerChoice()));
     </script>
 </body>
 </html>
