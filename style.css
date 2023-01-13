@@ -1,0 +1,14 @@
+#choices{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#score{
+    display: flex;
+    justify-content: center;
+}
+
+#wins,
+#losses{
+    padding: 16px;
+}

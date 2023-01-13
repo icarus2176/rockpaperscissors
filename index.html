@@ -5,78 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <script>
-        function getComputerChoice(){
-            const random = Math.random();
-            
-            if(random < .333)
-                return 'rock';
-            else if(random > .666)
-                return 'paper';
-            else
-                return 'scissors';
-        }
-
-        function play(playerSelection, computerSelection){
-            if(playerSelection == 'rock' && computerSelection == 'paper'){
-                return 'You lose! Paper beats rock.';
-            }
-            else if(playerSelection == 'rock' && computerSelection == 'scissors'){
-                return 'You win! Rock beats scissors.';
-            }
-            else if(playerSelection == 'paper' && computerSelection == 'scissors'){
-                return 'You lose! Scissors beats paper.';
-            }
-            else if(playerSelection == 'paper' && computerSelection == 'rock'){
-                return 'You win! Paper beats rock.';
-            }
-            else if(playerSelection == 'scissors' && computerSelection == 'rock'){
-                return 'You lose! Rock beats scissors.';
-            }
-            else if(playerSelection == 'scissors' && computerSelection == 'paper'){
-                return 'You win! Scissors beats paper.';
-            }
-            else
-                return 'It\'s a tie.';
-        }
-
-        function getPlayerChoice(){
-            let playerChoice = prompt('Rock, paper, or scissors?').toLowerCase();;
-
-            while(playerChoice != 'rock' && playerChoice != 'paper' && playerChoice != 'scissors'){
-                console.log('Invalid input');
-                playerChoice = prompt('Rock, paper, or scissors?').toLowerCase();
-            }
-
-            return playerChoice;
-        }
-
-        function game(){
-            let playerWins = 0;
-            let computerWins = 0;
-            let result;
-
-            for(let i = 0; i < 5; i++){
-                result = play(getPlayerChoice(), getComputerChoice());
-                
-                if(result.charAt(4) == 'w')
-                    playerWins++;
-                else if(result.charAt(4) == 'l')
-                    computerWins++;
-            }
-
-            if(playerWins > computerWins)
-                return 'You win ' + playerWins + ' to ' + computerWins;
-            else if(playerWins < computerWins)
-                return 'You lose ' + playerWins + ' to ' + computerWins;
-            else
-                return 'It\'s a tie' + playerWins + ' to ' + computerWins;
-
-        }
-
-        console.log(play(getPlayerChoice(), getComputerChoice()));
-    </script>
+    <div id = 'choices'>
+        <button class = 'button' id = 'rock'>Rock</button>
+        <button class = 'button' id = 'paper'>Paper</button>
+        <button class = 'button' id = 'scissors'>Scissors</button>
+    </div>
+    <div id = 'results'>
+        <div id = 'score'>
+            <div id = 'wins'>0</div>
+            <div id = 'losses'>0</div>
+        </div>
+    </div>
 </body>
+
 </html>
